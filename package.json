@@ -1,0 +1,43 @@
+{
+  "name": "grunt-choose",
+  "version": "0.0.1",
+  "description": "Ask the user to choose a task to run in a list.",
+  "keywords": [
+    "gruntplugin"
+  ],
+  "homepage": "https://github.com/leny/grunt-choose",
+  "author": {
+    "name": "Leny",
+    "email": "info@flatland.be",
+    "url": "http://leny.me"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/leny/grunt-choose.git"
+  },
+  "bugs": {
+    "url": "https://github.com/leny/grunt-choose/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/leny/grunt-choose/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.4",
+    "grunt-newer": "^0.7.0",
+    "grunt-contrib-coffee": "^0.10.1",
+    "grunt-coffeelint": "0.0.10",
+    "matchdep": "^0.3.0",
+    "grunt-clear": "^0.2.1",
+    "grunt-contrib-watch": "^0.6.1"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4"
+  }
+}
