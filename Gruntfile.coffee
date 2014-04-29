@@ -66,6 +66,15 @@ module.exports = ( grunt ) ->
 
   grunt.loadTasks "tasks"
 
+  grunt.registerTask "message", "Display a message", ( arg ) ->
+    grunt.log.writeln switch
+      when "one" then "Hey ! This is task message:one !"
+      when "two" then "Hey ! This is task message:two !"
+      when "three" then "Hey ! This is task message:three !"
+      when "four" then "Hey ! This is task message:four !"
+      when "five" then "Hey ! This is task message:five !"
+      else "Hey ! This is task message:default !"
+
   grunt.registerTask "default", [
     "clear"
     "coffeelint"
