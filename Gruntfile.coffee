@@ -1,6 +1,6 @@
 ###
  * grunt-choose
- * https://github.com/Leny/grunt-choose
+ * https://github.com/leny/grunt-choose
  *
  * Copyright (c) 2014 Leny
  * Licensed under the MIT license.
@@ -73,7 +73,7 @@ module.exports = ( grunt ) ->
   grunt.loadTasks "tasks"
 
   grunt.registerTask "message", "Display a message", ( arg ) ->
-    grunt.log.writeln switch
+    grunt.log.writeln switch( arg )
       when "one" then "Hey ! This is task message:one !"
       when "two" then "Hey ! This is task message:two !"
       when "three" then "Hey ! This is task message:three !"
