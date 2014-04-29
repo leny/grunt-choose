@@ -34,19 +34,19 @@
     var aChoices, aTasks, sChoice, sTask;
     aTasks = [];
     aChoices = [];
-    for (sTask in oChoices) {
-      sChoice = oChoices[sTask];
-      aTasks.push(sTask);
+    for (sChoice in oChoices) {
+      sTask = oChoices[sChoice];
       aChoices.push(sChoice);
+      aTasks.push(sTask);
     }
-    return [aTasks, aChoices];
+    return [aChoices, aTasks];
   };
 
   module.exports = function(grunt) {
     return grunt.registerMultiTask("choose", "Ask the user to choose a task to run in a list.", function() {
       var aChoices, aTasks, fDone, oInquirerQuestion, _ref, _ref1;
       fDone = this.async();
-      _ref1 = formatChoices((_ref = this.data.choices) != null ? _ref : getAllTasks(grunt.config.data)), aTasks = _ref1[0], aChoices = _ref1[1];
+      _ref1 = formatChoices((_ref = this.data.choices) != null ? _ref : getAllTasks(grunt.config.data)), aChoices = _ref1[0], aTasks = _ref1[1];
       oInquirerQuestion = {
         type: "list",
         name: "task",

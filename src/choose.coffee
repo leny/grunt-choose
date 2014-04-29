@@ -23,10 +23,10 @@ getAllTasks = ( oTaskData ) ->
 formatChoices = ( oChoices ) ->
     aTasks = []
     aChoices = []
-    for sTask, sChoice of oChoices
-        aTasks.push sTask
+    for sChoice, sTask of oChoices
         aChoices.push sChoice
-    [ aTasks, aChoices ]
+        aTasks.push sTask
+    [ aChoices, aTasks ]
 
 module.exports = ( grunt ) ->
 
@@ -34,7 +34,7 @@ module.exports = ( grunt ) ->
 
         fDone = @async()
 
-        [ aTasks, aChoices ] = formatChoices @data.choices ? getAllTasks grunt.config.data
+        [ aChoices, aTasks ] = formatChoices @data.choices ? getAllTasks grunt.config.data
 
         oInquirerQuestion =
             type: "list"

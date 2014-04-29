@@ -66,9 +66,12 @@ module.exports = ( grunt ) ->
       simple_options:
         options: {}
         choices:
-          "message:one": "Show me a message !"
-          "message:two": "Show me another message !"
-          "message:three": "Show me another, different message !"
+          "Show me a message !": "message:one"
+          "Show me another message !": "message:two"
+          "Show me another, different message !": [
+            "message:three"
+            "message:four"
+          ]
 
   grunt.loadTasks "tasks"
 
