@@ -8,6 +8,8 @@
 
 "use strict"
 
+inquirer = require "inquirer"
+
 getAllTasks = ( oTaskData ) ->
     oTasks = {}
     for sTask, oTargets of oTaskData
@@ -18,10 +20,29 @@ getAllTasks = ( oTaskData ) ->
                 oTasks[ sTaskAndTarget ] = sTaskAndTarget
     oTasks
 
+formatChoices = ( oChoices ) ->
+    aTasks = []
+    aChoices = []
+    for sTask, sChoice of oChoices
+        aTasks.push sTask
+        aChoices.push sChoice
+    [ aTasks, aChoices ]
+
 module.exports = ( grunt ) ->
 
     grunt.registerMultiTask "choose", "Ask the user to choose a task to run in a list.", ->
 
-        oChoices = @data.choices ? getAllTasks grunt.config.data
+        fDone = @async()
 
-        console.log grunt.config
+        [ aTasks, aChoices ] = formatChoices @data.choices ? getAllTasks grunt.config.data
+
+        oInquirerQuestion =
+            type: "list"
+            name: "task"
+            message: "Choose the task to run now :" # TODO : allow to pass a message by option
+            choices: aChoices
+
+        inquirer.prompt oInquirerQuestion, ( oAnswer ) ->
+            fDone no if ( iIndex = aChoices.indexOf oAnswer.task ) is -1
+            grunt.task.run aTasks[ iIndex ]
+            fDone()
