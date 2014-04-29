@@ -47,7 +47,16 @@
       var aChoices, aTasks, fDone, oInquirerQuestion, oOptions, _ref, _ref1, _ref2;
       fDone = this.async();
       oOptions = this.options();
-      _ref1 = formatChoices((_ref = this.data.choices) != null ? _ref : getAllTasks(grunt.config.data)), aChoices = _ref1[0], aTasks = _ref1[1];
+      if (!!this.data.choices) {
+        if (grunt.util.kindOf(this.data.choices) === "array") {
+          aChoices = this.data.choices;
+          aTasks = this.data.choices;
+        } else {
+          _ref = formatChoices(this.data.choices), aChoices = _ref[0], aTasks = _ref[1];
+        }
+      } else {
+        _ref1 = formatChoices(getAllTasks(grunt.config.data)), aChoices = _ref1[0], aTasks = _ref1[1];
+      }
       oInquirerQuestion = {
         type: oOptions.multiple ? "checkbox" : "list",
         name: "tasks",
@@ -58,6 +67,7 @@
         var iIndex, sChoice, _i, _len, _ref3;
         if (oOptions.multiple) {
           if (!oAnswer.tasks.length) {
+            grunt.log.writeln("no task chosen.");
             return fDone();
           }
           _ref3 = oAnswer.tasks;

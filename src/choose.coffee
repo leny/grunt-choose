@@ -36,7 +36,14 @@ module.exports = ( grunt ) ->
 
         oOptions = @options()
 
-        [ aChoices, aTasks ] = formatChoices @data.choices ? getAllTasks grunt.config.data
+        if !!@data.choices
+            if grunt.util.kindOf( @data.choices ) is "array"
+                aChoices = @data.choices
+                aTasks = @data.choices
+            else
+                [ aChoices, aTasks ] = formatChoices @data.choices
+        else
+            [ aChoices, aTasks ] = formatChoices getAllTasks grunt.config.data
 
         oInquirerQuestion =
             type: if oOptions.multiple then "checkbox" else "list"
@@ -46,7 +53,9 @@ module.exports = ( grunt ) ->
 
         inquirer.prompt oInquirerQuestion, ( oAnswer ) ->
             if oOptions.multiple
-                return fDone() unless oAnswer.tasks.length
+                unless oAnswer.tasks.length
+                    grunt.log.writeln "no task chosen."
+                    return fDone()
                 grunt.task.run aTasks[ iIndex ] for sChoice in oAnswer.tasks when ( iIndex = aChoices.indexOf sChoice ) isnt -1
             else
                 return fDone no if ( iIndex = aChoices.indexOf oAnswer.tasks ) is -1

@@ -61,18 +61,8 @@ module.exports = ( grunt ) ->
           "newer:coffee:server"
         ]
     choose:
-      default_options:
-        options: {}
-      simple_options:
-        options: {}
-        choices:
-          "Show me a message !": "message:one"
-          "Show me another message !": "message:two"
-          "Show me another, different message !": [
-            "message:three"
-            "message:four"
-          ]
-      all_options:
+      default_options: {}
+      custom_options:
         options:
           message: "Please, choose a task:"
           multiple: yes
