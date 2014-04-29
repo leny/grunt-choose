@@ -9,10 +9,31 @@
 
 (function() {
   "use strict";
+  var getAllTasks;
+
+  getAllTasks = function(oTaskData) {
+    var oOptions, oTargets, oTasks, sTarget, sTask, sTaskAndTarget;
+    oTasks = {};
+    for (sTask in oTaskData) {
+      oTargets = oTaskData[sTask];
+      oTasks[sTask] = sTask;
+      for (sTarget in oTargets) {
+        oOptions = oTargets[sTarget];
+        if (sTarget !== "options") {
+          sTaskAndTarget = "" + sTask + ":" + sTarget;
+          oTasks[sTaskAndTarget] = sTaskAndTarget;
+        }
+      }
+    }
+    return oTasks;
+  };
+
   module.exports = function(grunt) {
     return grunt.registerMultiTask("choose", "Ask the user to choose a task to run in a list.", function() {
+      var oChoices, _ref;
       grunt.log.writeln("There's many things TODO here.");
-      return console.log(grunt.config);
+      oChoices = (_ref = this.data.choices) != null ? _ref : getAllTasks(grunt.config.data);
+      return console.log(oChoices);
     });
   };
 
