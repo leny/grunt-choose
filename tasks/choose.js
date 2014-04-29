@@ -10,8 +10,9 @@
 (function() {
   "use strict";
   module.exports = function(grunt) {
-    return grunt.registerMultiTask('choose', 'Ask the user to choose a task to run in a list.', function() {
-      return grunt.log.writeln("There's many things TODO here.");
+    return grunt.registerMultiTask("choose", "Ask the user to choose a task to run in a list.", function() {
+      grunt.log.writeln("There's many things TODO here.");
+      return console.log(grunt.config);
     });
   };
 

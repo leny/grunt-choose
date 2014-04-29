@@ -13,3 +13,5 @@ module.exports = ( grunt ) ->
     grunt.registerMultiTask "choose", "Ask the user to choose a task to run in a list.", ->
 
         grunt.log.writeln "There's many things TODO here."
+
+        console.log grunt.config

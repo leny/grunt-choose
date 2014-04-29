@@ -43,15 +43,15 @@ module.exports = ( grunt ) ->
           level: "error"
       task:
         files:
-          src: [ "tasks/*.coffee" ]
+          src: [ "src/*.coffee" ]
     coffee:
       task:
         files:
-            "tasks/choose.js": "tasks/choose.coffee"
+            "tasks/choose.js": "src/choose.coffee"
     watch:
       server:
         files: [
-          "tasks/*.coffee"
+          "src/*.coffee"
         ]
         options:
           nospawn: yes
@@ -63,6 +63,12 @@ module.exports = ( grunt ) ->
     choose:
       default_options:
         options: {}
+      simple_options:
+        options: {}
+        choices:
+          "message:one": "Show me a message !"
+          "message:two": "Show me another message !"
+          "message:three": "Show me another, different message !"
 
   grunt.loadTasks "tasks"
 
