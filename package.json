@@ -1,9 +1,9 @@
 {
   "name": "grunt-choose",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Ask the user to choose a task to run in a list.",
   "keywords": [
-    "gruntplugin"
+    "gruntplugin", "ask", "choose", "choice", "task", "prompt", "gui", "console", "terminal"
   ],
   "homepage": "https://github.com/leny/grunt-choose",
   "author": {
