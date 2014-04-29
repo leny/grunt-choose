@@ -34,15 +34,21 @@ module.exports = ( grunt ) ->
 
         fDone = @async()
 
+        oOptions = @options()
+
         [ aChoices, aTasks ] = formatChoices @data.choices ? getAllTasks grunt.config.data
 
         oInquirerQuestion =
-            type: "list"
-            name: "task"
-            message: "Choose the task to run now :" # TODO : allow to pass a message by option
+            type: if oOptions.multiple then "checkbox" else "list"
+            name: "tasks"
+            message: oOptions.message ? "Choose the task to run now :"
             choices: aChoices
 
         inquirer.prompt oInquirerQuestion, ( oAnswer ) ->
-            fDone no if ( iIndex = aChoices.indexOf oAnswer.task ) is -1
-            grunt.task.run aTasks[ iIndex ]
+            if oOptions.multiple
+                return fDone() unless oAnswer.tasks.length
+                grunt.task.run aTasks[ iIndex ] for sChoice in oAnswer.tasks when ( iIndex = aChoices.indexOf sChoice ) isnt -1
+            else
+                return fDone no if ( iIndex = aChoices.indexOf oAnswer.tasks ) is -1
+                grunt.task.run aTasks[ iIndex ]
             fDone()

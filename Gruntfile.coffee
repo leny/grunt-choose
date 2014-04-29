@@ -72,6 +72,17 @@ module.exports = ( grunt ) ->
             "message:three"
             "message:four"
           ]
+      all_options:
+        options:
+          message: "Please, choose a task:"
+          multiple: yes
+        choices:
+          "Show me a message !": "message:one"
+          "Show me another message !": "message:two"
+          "Show me another, different message !": [
+            "message:three"
+            "message:four"
+          ]
 
   grunt.loadTasks "tasks"
 
