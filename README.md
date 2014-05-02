@@ -1,6 +1,6 @@
 # grunt-choose
 
-[![NPM version](https://badge.fury.io/js/grunt-choose.png)](http://badge.fury.io/js/grunt-choose) [![Dependency Status](https://david-dm.org/leny/grunt-choose.png)](https://david-dm.org/leny/grunt-choose)
+![NPM version](http://img.shields.io/npm/v/grunt-choose.svg) ![Dependency Status](https://david-dm.org/leny/grunt-choose.svg) ![Downloads counter](http://img.shields.io/npm/dm/grunt-choose.svg)
 
 > Ask the user to choose a task to run in a list.
 
