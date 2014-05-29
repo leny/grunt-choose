@@ -117,6 +117,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 ## Release History
 
 * **0.1.0**: Initial release (*29/04/14*)
+* **0.1.1**: Update dependencies (*30/05/14*)
 
 ## License
 Copyright (c) 2014 Leny  
