@@ -31,8 +31,8 @@
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-newer": "^0.7.0",
-    "grunt-contrib-coffee": "^0.10.1",
-    "grunt-coffeelint": "0.0.10",
+    "grunt-contrib-coffee": "^0.12.0",
+    "grunt-coffeelint": "0.0.13",
     "matchdep": "^0.3.0",
     "grunt-clear": "^0.2.1",
     "grunt-contrib-watch": "^0.6.1"
@@ -41,6 +41,6 @@
     "grunt": "~0.4"
   },
   "dependencies": {
-    "inquirer": "^0.5.1"
+    "inquirer": "^0.8.0"
   }
 }
