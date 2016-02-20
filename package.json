@@ -3,7 +3,15 @@
   "version": "0.1.2",
   "description": "Ask the user to choose a task to run in a list.",
   "keywords": [
-    "gruntplugin", "ask", "choose", "choice", "task", "prompt", "gui", "console", "terminal"
+    "gruntplugin",
+    "ask",
+    "choose",
+    "choice",
+    "task",
+    "prompt",
+    "gui",
+    "console",
+    "terminal"
   ],
   "homepage": "https://github.com/leny/grunt-choose",
   "author": {
@@ -38,7 +46,7 @@
     "grunt-contrib-watch": "^0.6.1"
   },
   "peerDependencies": {
-    "grunt": "~0.4"
+    "grunt": ">=0.4.0"
   },
   "dependencies": {
     "inquirer": "^0.8.0"
